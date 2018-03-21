@@ -212,6 +212,11 @@ interest_by_region <- function(widget, comparison_item, low_search_volume) {
 
   res <- setNames(res, tolower(resolution))
 
+  res <- list(region = region, dma = dma, city = city)
+  res <- lapply(res, function(df){
+    filtr = rownames(unique(df[,c(1,3:5)]))
+    subset(df, rownames(df) %in% filtr)
+  })
   return(res)
 }
 
