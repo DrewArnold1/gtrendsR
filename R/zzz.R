@@ -212,17 +212,18 @@ interest_by_region <- function(widget, comparison_item, low_search_volume) {
 
   res <- setNames(res, tolower(resolution))
   
-  last_name = ""
+  if(length(res) > 3) {
+    last_name = ""
 
-  for(i in 1:length(res)) { 
-  if(names(res[[i]]) == last_name) {
-    res[[i]]$type = "single"
-  } else {
-    res[[i]]$type = "combined"
-  } 
-  last_name = names(res[[i]])
-}
-
+    for(i in 1:length(res)) { 
+      if(names(res[[i]]) == last_name) {
+        res[[i]]$type = "single"
+      } else {
+        res[[i]]$type = "combined"
+      } 
+      last_name = names(res[[i]])
+    }
+  }
 
   return(res)
 }
