@@ -221,7 +221,7 @@ interest_by_region <- function(widget, comparison_item, low_search_volume) {
       } else {
         res[[i]]$type = "combined"
       } 
-      last_name = names(res[[i]])
+      last_name = names(res[i])
     }
   }
 
