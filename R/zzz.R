@@ -216,7 +216,7 @@ interest_by_region <- function(widget, comparison_item, low_search_volume) {
     last_name = ""
 
     for(i in 1:length(res)) { 
-      if(names(res[[i]]) == last_name) {
+      if(names(res)[i] == last_name) {
         res[[i]]$type = "single"
       } else {
         res[[i]]$type = "combined"
